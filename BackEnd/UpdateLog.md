@@ -1,33 +1,47 @@
 # UpdateLog
 
-此文件系后端组工作日志。
+此文件系索引组与后端组工作日志。
 
-## 2020.10
+## BackEnd
 
-### 2020.10.07
+### 2020.10
+
+#### 2020.10.07
 
 - 原有项目已经经过部分升级，在其中加入了Mybatis部分
 
-## TODO
+### 2020.10.08
 
-1. 完成Spring Boot升级旧项目 [微博可视化平台](https://github.com/WIN0624/Weibo_RepostRelationship_Visualization_Platform) 。
-   - 解决Test方法报空指针错误的问题
-   - 加入分页功能
-   - 修正json格式
-2. 对升级后的项目做junit测试。
-3. 考察Spring Cloud。
+- 修正了返回json格式错误
+- 完成了分页功能加入
+- 在服务器上联通成功
+- 完成了192服务器部分的单元测试逻辑书写
 
-# SuoyinUpdateLog
+### 2020.10.09
+
+- 尝试121压力测试逻辑
+- 尝试192MySQL压力测试逻辑
+- 完成了121服务器的单元测试逻辑书写
+- 对Spring Cloud的考察初步完成
+
+### TODO
+
+1. 完成Junit单元测试的测试用例与断言书写
+2. 明确压力测试的意义
+3. 确定Spring Cloud的实现与否
+4. 考察分布式数据库
+
+## SuoyinUpdateLog
 
 此部分内容为索引组工作日志
 
-## 2020.10
+### 2020.10
 
-### 2020.10.07
+#### 2020.10.07
 
 - 对原有项目进行了升级，将Redis内容整合进Springboot框架中
 
-## TODO
+### TODO
 
 1. 将Redis相关内容记性了修改，将其中的方法整合进Springboot框架中
    - 将原有MINA_Maven中的MyRedis包进行改造，将其整合进Springboot框架中
