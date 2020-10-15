@@ -539,8 +539,13 @@ ul {
 .uk16 {
   font-size: 16px; }
 
-.uk18 {
-  font-size: 18px; }
+.search {
+  height:50px;
+  padding:10px;
+  border:none;
+  border-radius: 25px;
+  outline: none;
+   }
 
 .uk21 {
   font-size: 21px; }
@@ -868,6 +873,10 @@ blockquote.quote {
 
 .text-white a {
   color: #ffffff; }
+
+.keyword {
+  width:400px;
+}
 
 .text-black {
   color: #000000 !important; }
