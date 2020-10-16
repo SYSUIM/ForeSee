@@ -1,0 +1,73 @@
+[
+  {
+    "industryCode": "BK0537",
+    "allInfo": [
+      {
+        "stock_code": "300433",
+        "stock_name": "蓝思科技",
+        "company_name": "蓝思科技股份有限公司",
+        "news": [
+          {
+            "news_title": "5G产业周期带动消费电子回暖，垂直整合促蓝思科技业绩实力大增",
+            "news_time": "2020-10-10",
+            "news_link": "'https://finance.sina.com.cn/stock/relnews/cn/2020-10-10/doc-iivhuipp8809470.shtml'"
+          },
+          {
+            "news_title": "A股周一见：十月开门红 A股要迎“银十”行情？",
+            "news_time": "2020-10-11",
+            "news_link": "'https://finance.sina.com.cn/stock/stocktalk/2020-10-11/doc-iivhvpwz1415299.shtml'"
+          }
+        ]
+      },
+      {
+        "stock_code": "002129",
+        "stock_name": "中环股份",
+        "company_name": "天津中环半导体股份有限公司",
+        "news": [
+          {
+            "news_title": "中环股份：控股股东混合所有制改革完成 TCL科技间接持股25.30%",
+            "news_time": "2020-09-27",
+            "news_link": "'https://finance.sina.com.cn/stock/relnews/cn/2020-09-27/doc-iivhuipp6833181.shtml'"
+          },
+          {
+            "news_title": "中环股份混合所有制改革完成，TCL科技获控股权",
+            "news_time": "2020-09-28",
+            "news_link": "'https://finance.sina.com.cn/stock/relnews/cn/2020-09-28/doc-iivhuipp6982687.shtml'"
+          },
+          {
+            "news_title": "专利之战再起！中环、阿特斯“开撕”",
+            "news_time": "2020-09-29",
+            "news_link": "'https://finance.sina.com.cn/stock/relnews/cn/2020-09-29/doc-iivhvpwy9583695.shtml'"
+          },
+          {
+            "news_title": "证券代码：002129 证券简称：中环股份  公告编号：2020-95天津中环半导体股份有限公司关于知识产权维护的提示性公告",
+            "news_time": "2020-09-30",
+            "news_link": "'https://finance.sina.com.cn/roll/2020-09-30/doc-iivhvpwy9625659.shtml'"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "industryCode": "BK0485",
+    "allInfo": [
+      {
+        "stock_code": "000613",
+        "stock_name": "大东海A",
+        "company_name": "海南大东海旅游中心股份有限公司",
+        "news": [
+          {
+            "news_title": "最高巨亏300亿！A股2020年中报季最大的“雷”，爆了…",
+            "news_time": "2020-08-28",
+            "news_link": "'https://cj.sina.cn/articles/view/6176407506/170247fd201900plla'"
+          },
+          {
+            "news_title": "八成A股盈利折射经济韧性 二季度明显回暖",
+            "news_time": "2020-08-31",
+            "news_link": "'https://finance.sina.com.cn/roll/2020-08-31/doc-iivhuipp1598098.shtml'"
+          }
+        ]
+      }
+    ]
+  }
+]
