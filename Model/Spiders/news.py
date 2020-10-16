@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Oct 15 19:48:39 2020
 
-@author: Le_C
-
-"""
 
 
 import requests
@@ -57,9 +52,9 @@ def get_compNews(stock_code,stock_name,short_name,stock_exchange):
             print("Connection refused by the server..")
             time.sleep(5)
             continue
-    #上述操作完成后应该'news_title','news_time','news_link'存储了那家公司所有新闻信息
+
     listlen = len(news_time)
-#    stock_name = [stockName]*listlen
+
     #对信息进行处理
     tmpDic = {
              "news_title":news_title, 
@@ -79,7 +74,7 @@ def get_compNews(stock_code,stock_name,short_name,stock_exchange):
             }
     #一家公司所有信息转成一个df
     resDf_comp = pd.DataFrame(resDic_comp)
-    # print("完成一家公司所有信息")
+
     return resDf_comp
 
 def get_indryNews(industryCode,compDf):
