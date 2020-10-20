@@ -4,6 +4,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import re
 
 def get_Stream_Text(StreamURL):
     response = requests.get(StreamURL)
@@ -27,7 +28,27 @@ def processStreamContent(content):
             article_info = {}
             article_info['title'] = article_li.find('a').get_text()
             article_info['link'] = 'http://www.chyxx.com' + article_li.find('a')['href']
-            article_info['date'] = article_li.find('span').get_text()
+            pub_date_str = article_li.find('span').get_text()
+            if ' ' in pub_date_str:
+                article_info['pub_date'] = {
+                    'year': 2020,
+                    'month': re.match(r'(\d*)(月)(\d*)(日)(.*)', pub_date_str).groups()[0],
+                    'day': re.match(r'(\d*)(月)(\d*)(日)(.*)', pub_date_str).groups()[2]
+                }
+            else:
+                article_info['pub_date'] = {
+                    'year': re.match(r'(\d*)(年)(\d*)(月)(\d*)(日)(.*)', pub_date_str).groups()[0],
+                    'month': re.match(r'(\d*)(年)(\d*)(月)(\d*)(日)(.*)', pub_date_str).groups()[2],
+                    'day': re.match(r'(\d*)(年)(\d*)(月)(\d*)(日)(.*)', pub_date_str).groups()[4],
+                }
+            try:
+                article_info['analysis_year'] = re.match(r'(.*)(20\d{2})-(20\d{2})(年|.)(.*)', article_info['title']).groups()[1]
+            except AttributeError as e:
+                try:
+                    article_info['analysis_year'] = re.match(r'(.*)(20\d{2})(年|.)(.*)', article_info['title']).groups()[1]
+                except AttributeError as e:
+                    print(e, 'Failed to match ANALYSE YEAR')
+                    article_info['analysis_year'] = article_info['pub_date']['year']
             article_infos.append(article_info)
     print(article_infos)
     return article_infos
