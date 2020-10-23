@@ -10,6 +10,40 @@
 
 ## 二、项目结构
 
+以下为 /src 目录下文件结构
+
+│  App.vue
+│  list.txt
+│  main.js
+│  
+├─assets
+│  │  logo.png
+│  │  
+│  └─js
+│          LineChart.js
+│          
+├─components
+│      Banner.vue
+│      Card.vue
+│      Content.vue
+│      CTA.vue
+│      Footer.vue
+│      Header.vue
+│      LineChart.vue
+│      News.vue
+│      search.vue
+│      
+├─mixins
+│      index.js
+│      
+├─router
+│      index.js
+│      
+└─views
+        Detail.vue
+        Index.vue
+        Retrieval.vue
+
 
 
 ## 三、开发进程及会议记录
@@ -76,6 +110,32 @@
 
 
 ### 2020年10月16日
+
+#### 1. 本周主要工作
+
+​     页面部署，企业营收折线图
+
+#### 2. 待解决
+
+​     新闻、公告详情页；
+
+​     增加新的模块：行业分析；
+
+​     第二页（检索结果展示页）：行业内企业的分布地图；
+
+​     第三页（企业详情页）：该企业的地理位置（地图）；
+
+​     重新确定数据格式；
+
+#### 3. 规划
+
+​     增加企业的可视化内容：如，公司之间的竞技关系，上下游关系（硬件供应商、零售商），随时间战略演变图等；增加行业可视化内容。
+
+
+
+### 2020年10月23日
+
+
 
 
 
