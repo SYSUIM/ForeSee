@@ -15,7 +15,7 @@ def get_Stream_Text(StreamURL):
         return response.text.encode(coding_format).decode(requests.utils.get_encodings_from_content(response.text)[0])
     except requests.HTTPError as e:
         print(e)
-        print('HTTPError: Request for Article Failed.')
+        print('HTTPError: Request for Stream Failed.')
 
 def processStreamContent(content):
     soup = BeautifulSoup(content, 'html.parser')
@@ -28,6 +28,7 @@ def processStreamContent(content):
             article_info = {}
             article_info['title'] = article_li.find('a').get_text()
             article_info['link'] = 'http://www.chyxx.com' + article_li.find('a')['href']
+            article_info['aid'] = article_li.find('a')['href'][:-5]
             pub_date_str = article_li.find('span').get_text()
             if ' ' in pub_date_str:
                 article_info['pub_date'] = {
@@ -53,12 +54,57 @@ def processStreamContent(content):
     print(article_infos)
     return article_infos
 
+def WriteArticleInfoJson(article_info_all, name):
+    with open('C:\\Users\\Tommy Pan\\Desktop\\' + name, 'w', encoding='utf-8') as f:
+        json.dump(article_info_all, f, ensure_ascii=False)
+
+def getArticleHTML(ArticleURL):
+    response = requests.get(ArticleURL)
+    print('Pull request to ' + ArticleURL)
+    try:
+        response.raise_for_status()
+        coding_format = response.encoding
+        return response.text.encode(coding_format).decode(requests.utils.get_encodings_from_content(response.text)[0])
+    except requests.HTTPError as e:
+        print(e)
+        print('HTTPError: Request for Article Failed.')
+
+def toBeautifulSoup(content):
+    soup = BeautifulSoup(content, 'html.parser')
+    return soup.body.find('div', attrs = {'class': 'articleBody news-content'})
+
+def processArticleContent(soupDiv):
+    articleContent = soupDiv.get_text().replace('\n', '').replace('\xa0', '')
+    # 去除字符串前后空格字符串
+    articleContent = articleContent.strip()
+    return articleContent
+
+def getAbstract(soupDiv):
+    for abstract in soupDiv.contents:
+        try:
+            if len(abstract.get_text()) < 30:
+                continue
+            else: break
+        except AttributeError: continue
+    abstract = abstract.get_text().replace('\xa0', '').strip()
+    if len(abstract) > 75:
+        abstract = abstract[:75]
+    return abstract
+
 if __name__ == '__main__':
     article_info_all = []
+    article_abstract_all = {}
+    article_content_all = {}
     for page in range(31):
         url = 'https://www.chyxx.com/industry/internet/' + str(page+1) + '.html'
         article_info_page = processStreamContent(get_Stream_Text(url))
         article_info_all = article_info_all + article_info_page
-    with open('C:\\Users\\Tommy Pan\\Desktop\\industry_article_info.json', 'w', encoding='utf-8') as f:
-        f.write(json.dumps(article_info_all))
-        f.close()
+    WriteArticleInfoJson(article_info_all, 'Internet_article_info.json')
+    for article_info in article_info_all:
+        soupDiv = toBeautifulSoup(getArticleHTML(article_info['link']))
+        articleContent = processArticleContent(soupDiv)
+        articleAbstract = getAbstract(soupDiv)
+        article_abstract_all[article_info['aid']] = articleAbstract
+        article_content_all[article_info['aid']] = articleContent
+    WriteArticleInfoJson(article_content_all, 'Internet_article_content.json')
+    WriteArticleInfoJson(article_abstract_all, 'Internet_article_abstract.json')
