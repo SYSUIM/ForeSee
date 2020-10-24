@@ -1,0 +1,15 @@
+# 开发环境配置文件
+server:
+  port: 8287
+  servlet:
+    context-path: /ForeSee
+
+#spring:
+#  data:
+#    mongodb:
+#      custom:
+#        host: localhost
+#        port: 27017
+#        database: mydb
+#        connections-per-host: 10
+#        min-connections-per-host: 3

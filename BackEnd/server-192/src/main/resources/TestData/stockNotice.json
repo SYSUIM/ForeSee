@@ -1,0 +1,39 @@
+[
+  {
+    "industry_code": "BK0421",
+
+        "stock_code": "000828",
+        "company_name": "东莞发展控股股份有限公司",
+        "stock_name": "东莞控股",
+        "notice_info": [
+          {
+            "notice_title": "关于2020年度第一期中期票据发行结果公告",
+            "notice_time": "2020-09-10",
+            "link": "http://static.cninfo.com.cn/finalpage/2020-09-11/1208424925.PDF"
+          },
+          {
+            "notice_title": "关于公司高级管理人员辞职的公告",
+            "notice_time": "2020-09-17",
+            "link": "http://static.cninfo.com.cn/finalpage/2020-09-18/1208454585.PDF"
+          }
+    ]
+  },
+  {
+    "industry_code": "BK0420",
+        "stock_code": "600029",
+        "company_name": "中国南方航空股份有限公司",
+        "stock_name": "南方航空",
+        "notice_info": [
+          {
+            "notice_title": "2020年9月主要运营数据公告",
+            "notice_time": "2020-10-13",
+            "link": "http://static.sse.com.cn/disclosure/listedinfo/announcement/c/2020-10-14/600029_20201014_1.pdf"
+          },
+          {
+            "notice_title": "公开发行A股可转换公司债券发行提示性公告",
+            "notice_time": "2020-10-14",
+            "link": "http://static.sse.com.cn/disclosure/listedinfo/announcement/c/2020-10-15/600029_20201015_1.pdf"
+          }
+    ]
+  }
+]
