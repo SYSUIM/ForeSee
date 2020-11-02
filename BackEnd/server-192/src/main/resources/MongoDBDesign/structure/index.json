@@ -1,0 +1,16 @@
+[
+  { "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "ForeSee.BasicInfo" },
+  { "v" : 1, "key" : { "industry_code" : 1 }, "name" : "industry_code_1", "ns" : "ForeSee.BasicInfo" },
+  { "v" : 1, "unique" : true, "key" : { "stock_code" : 1 }, "name" : "stock_code_1", "ns" : "ForeSee.BasicInfo" },
+  { "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "ForeSee.ArticleInfo" },
+  { "v" : 1, "unique" : true, "key" : { "aid" : 1 }, "name" : "aid_1", "ns" : "ForeSee.ArticleInfo" },
+  { "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "ForeSee.geo" },
+  { "v" : 1, "unique" : true, "key" : { "stock_code" : 1 }, "name" : "stock_code_1", "ns" : "ForeSee.geo" },
+  { "v" : 1, "key" : { "industry_code" : 1 }, "name" : "industry_code_1", "ns" : "ForeSee.geo" },
+  { "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "ForeSee.News" },
+  { "v" : 1, "key" : { "stock_code" : 1, "news_time" : 1 }, "name" : "stock_code_1_news_time_1", "ns" : "ForeSee.News" },
+  { "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "ForeSee.Profit" },
+  { "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "ForeSee.Notice" },
+  { "v" : 1, "key" : { "stock_code" : 1 }, "name" : "stock_code_1", "ns" : "ForeSee.Profit" },
+  { "v" : 1, "key" : { "stock_code" : 1, "notice_time" : 1 }, "name" : "stock_code_1_notice_time_1", "ns" : "ForeSee.Notice" }
+]
