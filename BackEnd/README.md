@@ -35,6 +35,7 @@ ForeSee
 | X-shell       | Linux远程连接工具   | http://www.netsarang.com/download/software.html |
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 开发环境
 
 | 工具          | 版本号 | 下载                                                         |
@@ -51,4 +52,3 @@ Jia Chang：Spring Cloud框架
 Qian Yin Kuang：Spring Cloud框架
 Jia Yi Li：数据库
 Chong Wen Du：数据库
->>>>>>> upstream/master
