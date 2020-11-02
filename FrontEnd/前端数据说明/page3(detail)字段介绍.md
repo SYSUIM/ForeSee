@@ -2,13 +2,13 @@
 
 ## 1. "companyInfo" ——企业基本信息
 
-#### 1.1 "companyName"——企业名称
+#### 1.1 "former_name"——企业名称
 
 #### 1.2  "describe"——简介
 
 #### 1.3  "logo"——企业logo图片地址
 
-#### 1.4  "stockCode"——股票代码
+#### 1.4  "stock_code"——股票代码
 
 ## 2. "news"——新闻
 
