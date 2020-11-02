@@ -1,3 +1,20 @@
 spring:
   profiles:
-    active: dev  # 指定配置文件
+    active: prod  # 指定配置文件
+  application:
+     name: springcloud-foresee
+
+#eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://222.200.184.74:8888/eureka/
+
+  instance:
+    instance-id: springcloud-foresee-8288
+    prefer-ip-address: true
+
+info:
+  app.name: springcloud-foresee
+  company.name: www.foresee.com
+

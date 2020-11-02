@@ -1,3 +1,10 @@
 spring:
   profiles:
-    active: dev  # 指定配置文件
+    active: prod  # 指定配置文件
+  application:
+    name: springcloud-client
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://222.200.184.74:8888/eureka/

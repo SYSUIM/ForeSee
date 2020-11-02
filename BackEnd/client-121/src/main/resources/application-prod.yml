@@ -5,18 +5,6 @@ server:
     context-path: /ForeSee
 
 # 发送给服务端的根url
-httpUrl: http://222.200.184.74:7236/ForeSee
+#　httpUrl: http://222.200.184.74:7236/ForeSee
 
-# 写shutdown文件用的东西
-management:
-  endpoint:
-    shutdown:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-      base-path: /MyActuator
-  server:
-    port: 12581
-    address: 127.0.0.1
+
