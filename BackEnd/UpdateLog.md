@@ -56,15 +56,21 @@
 - 把路由网关由zuul换成gateway
 - 使用nacos作为服务注册中心和配置中心
 
+#### 2020.10.31
+
+- 更新了MongoDB表设计
+- 更新了服务器MongoDB版本，使用WiredTriger作为存储引擎
+
+**MongoDB相关设置卸载BackEnd/server-192/MongoDBDesign中**
+
+- 考虑分片及复制集
+- 根据前端页面需求修改并优化数据访问层
 
 ### TODO
 
 1. 将项目的部分组件升级为spring cloud alibaba
-2. 优化MongoDb的数据存储结构
-3. 写项目的说明文档
-4. 落实每人分工及未来规划 
-5. 考察分布式数据库
-6. nacos运行占用线程过多如何解决
+2. 写项目的说明文档
+3. nacos运行占用线程过多如何解决
  
 
 ## SuoyinUpdateLog

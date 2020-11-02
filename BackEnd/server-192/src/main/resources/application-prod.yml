@@ -1,18 +1,12 @@
 # 生产环境配置文件
 server:
-  port: 8770
-  servlet:
-    context-path: /ForeSee
+  port: 8288
 
-management:
-  endpoint:
-    shutdown:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-      base-path: /MyActuator
-  server:
-    port: 12581
-    address: 127.0.0.1
+spring:
+  redis:
+    host: localhost
+    port: 6479
+    jedis:
+      pool:
+        min-idle: 0
+        max-idle: 10
