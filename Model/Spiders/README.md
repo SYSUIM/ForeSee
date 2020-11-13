@@ -141,6 +141,7 @@
         |     stock_code      |                股票代码                 |
         |    company_name     |                 公司名                  |
         |     stock_name      |                 股票名                  |
+        |      full_code      |              完整股票代码               |
         | notice_info \| 数组 | 该股票所有公告 \|  一个公告对应一个字典 |
 
     * 公告部分，即`notice_info`中每个字典
@@ -155,22 +156,23 @@
 
     ```json
     {
-      "industry_code": "BK0420",
-      "stock_code": "600115",
-      "company_name": "中国东方航空股份有限公司",
-      "stock_name": "东方航空",
-      "notice_info": [
-        {
-          "notice_title": "董事会决议公告",
-          "notice_time": "2012-03-25",
-          "link": "http://static.cninfo.com.cn/finalpage/2012-03-26/60724323.PDF"
-        },
-        {
-          "notice_title": "监事会决议公告",
-          "notice_time": "2012-03-25",
-          "link": "http://static.cninfo.com.cn/finalpage/2012-03-26/60724324.PDF"
-        }
-      ]
+        "industry_code": "BK0420",
+        "stock_code": "000089",
+        "company_name": "深圳市机场股份有限公司",
+        "stock_name": "深圳机场",
+        "full_code": "SZ000089",
+        "notice_info": [
+            {
+                "notice_title": "2011年11月份生产经营快报",
+                "notice_time": "2011-12-09",
+                "link": "http://static.cninfo.com.cn/finalpage/2011-12-10/60306856.PDF"
+            },
+            {
+                "notice_title": "限售股份解除限售提示性公告",
+                "notice_time": "2011-12-12",
+                "link": "http://static.cninfo.com.cn/finalpage/2011-12-13/60316057.PDF"
+            }
+        ]
     }
     ```
 
