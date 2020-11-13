@@ -7,6 +7,14 @@
 ## 一、技术栈
 
 
+- [Vue.js](https://cn.vuejs.org)
+- [vue-cli-3](https://cli.vuejs.org/zh/)
+- [vue-router](https://router.vuejs.org/zh/)
+- [webpack](https://www.webpackjs.com/)
+- [aixos](https://github.com/axios/axios)
+- [Element-UI](http://element-cn.eleme.io/#/zh-CN)
+- [echarts](https://echarts.apache.org/zh/index.html)
+
 
 ## 二、项目结构
 
