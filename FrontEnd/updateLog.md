@@ -7,82 +7,115 @@
 ## 一、技术栈
 
 
+- [Vue.js](https://cn.vuejs.org)
+- [vue-cli-3](https://cli.vuejs.org/zh/)
+- [vue-router](https://router.vuejs.org/zh/)
+- [webpack](https://www.webpackjs.com/)
+- [aixos](https://github.com/axios/axios)
+- [Element-UI](http://element-cn.eleme.io/#/zh-CN)
+- [echarts](https://echarts.apache.org/zh/index.html)
+
 
 ## 二、项目结构
 
 以下为 /src 目录下文件结构
 
-│  App.vue
-│  list.txt
+```
+
+│  App.vue                                       //主组件
 │  main.js
 │  
-├─assets
-│  │  logo.png
+├─assets                                         //静态资源
+│  │  logo.png                                   //浏览器标签图表
 │  │  
+│  ├─images
+│  │      banner-bg.png
+│  │      cta-bg.png
+│  │      index-wordcloud.png
+│  │      logo-black.png
+│  │      logo-white.png
+│  │      
 │  └─js
-│          LineChart.js
+│          LineChart.js                          //企业营收折线图
 │          
-├─components
-│      Banner.vue
-│      Card.vue
-│      Content.vue
-│      CTA.vue
-│      Footer.vue
-│      Header.vue
-│      LineChart.vue
-│      News.vue
-│      search.vue
+├─components                                     //组件
+│      Banner.vue                                //横幅
+│      Card.vue                                  //企业详情表格
+│      Content.vue                               //企业网格
+│      CTA.vue                                   //联系我们（广告标语）
+│      Footer.vue                                //尾部
+│      Geo.vue                                   //行业地图
+│      GeoSingle.vue                             //企业地图
+│      Header.vue                                //头部
+│      Industrial.vue                            //行业检索结果
+│      LineChart.vue                             //企业营收折线图
+│      News.vue                                  //新闻公告
+│      Search.vue                                //搜索框
+│      SearchBox1.vue                            //搜索框-企业检索
+│      SearchBox2.vue                            //搜索框-行业检索
+│      Tabs.vue                                  //标签-行业检索页
+│      Tabs2.vue                                 //备用
 │      
 ├─mixins
 │      index.js
 │      
-├─router
+├─router                                         //路由配置
 │      index.js
 │      
-└─views
-        Detail.vue
-        Index.vue
-        Retrieval.vue
+└─views                                          //主要页面
+        Detail.vue                               //企业详情页
+        Index.vue                                //首页
+        Industry.vue                             //行业检索页
+        MoreNews.vue                             //新闻详情页
+        Retrieval.vue                            //企业检索页
+
+```
+
+
+## 三、后端接口
+
+| 序号 | URL 示例                                             | 参数                                         | 返回值             | 调用的网页或组件                 |
+| ---- | ---------------------------------------------------- | -------------------------------------------- | ------------------ | -------------------------------- |
+| 1    | http://121.46.19.26:8288/ForeSee/companyInfo/600485  | 股票代码；企业名称；<br />行业代码；行业名称 | 企业列表           | Retrieval.vue;<br />Industry.vue |
+| 2    | http://121.46.19.26:8288/ForeSee/allInfo/300433      | 股票代码；企业名称                           | 某个企业的全部信息 | Detail.vue                       |
+| 3    | http://121.46.19.26:8288/ForeSee/industryInfo/BK0427 | 行业代码                                     | 企业地理信息       | Geo.vue                          |
+| 4    | http://121.46.19.26:8288/ForeSee/allNews/300433/2    | 股票代码；页数                               | 企业新闻           | MoreNews.vue                     |
+| 5    | http://121.46.19.26:8288/ForeSee/allNotice/600496/2  | 股票代码；页数                               | 企业公告           | MoreNotice.vue                   |
 
 
 
-## 三、开发进程及会议记录
+## 四、开发进程及会议记录
 
 ### 2020年10月7日
 
 #### 1. 规划
 
-##### 第一阶段：完成三个网页的布局、UI 设计
+##### 1.1 第一阶段：完成三个网页的布局、UI 设计
 
+```
 网页一：首页，包含但不限于搜索框
-
 网页二：检索条目展示，包括一些分类标签。可视化部分先留白。
-
 网页三：企业详情
-
 1） 基本信息：企业logo、名称、法人信息、注册时间等
-
 2） 地图：地址、行业地域分布等
-
 3） 知识图谱：各企业、法人之间的关系
-
 4） 同类型企业推荐
-
 5） 其他可视化图表
+```
 
-##### 第二阶段：根据模型组数据进行可视化展示和迭代
+##### 1.2 第二阶段：根据模型组数据进行可视化展示和迭代
 
-##### 第三阶段：企业发展评估&预测
+##### 1.3 第三阶段：企业发展评估&预测
 
-​     1-10评估值，可视化
-
-
+```
+ 1-10评估值，可视化
+```
 
 #### 2. 确定网页设计模板
 
+```
 网页模板下载地址：http://d.weidea.net/demo.php?id=146747
-
-
+```
 
 #### 3. 待解决
 
@@ -101,11 +134,16 @@
 
 #### 2.本周主要工作
 
-​    制作网站demo，调通前后端
+```
+ 1. 制作网站demo
+ 2. 调通前后端
+```
 
 #### 3.待解决
 
-​    页面的完善和优化
+```
+ 页面的完善和优化
+```
 
 
 
@@ -113,7 +151,10 @@
 
 #### 1. 本周主要工作
 
-​     页面部署，企业营收折线图
+```
+ 1. 网站部署
+ 2. 绘制企业营收折线图
+```
 
 #### 2. 待解决
 
@@ -125,7 +166,9 @@
 
 #### 3. 规划
 
-​     增加企业的可视化内容：如，公司之间的竞技关系，上下游关系（硬件供应商、零售商），随时间战略演变图等；增加行业可视化内容。
+```
+   增加企业的可视化内容：如，公司之间的竞技关系，上下游关系（硬件供应商、零售商），随时间战略演变图等；增加行业可视化内容。
+```
 
 
 
@@ -146,7 +189,7 @@
 
 #### 3. 检索逻辑
 
-     1. 首页输入行业代码、行业名称——返回行业报告
+     1. 首页输入行业代码、行业名称——返回属于该行业的所有企业 + 可视化
      2. 首页输入企业名称、股票代码、股票名称——跳转至企业网格页面
 
 #### 4. 规划
@@ -157,6 +200,37 @@
 
 
 ### 2020年11月1日
+
+#### 1. 本周主要工作
+
+     1. 完善网站逻辑
+     2. 页面的细节完善、美化
+     3. 新闻、公告详情页页面设计
+
+
+
+### 2020年11月7日
+
+#### 1. 本周主要工作
+
+     1. 改进企业网格页logo样式
+     2. 新闻、公告动态摘要
+     3. 新闻、公告详情页联调
+     4. 撰写 readme 项目模块文档、接口文档
+     5. 更新前端数据格式说明文档
+
+#### 2. 待解决
+
+     1. 提升页面加载效率
+     2. 可视化调研和设计
+
+
+
+### 2020年11月13日
+
+
+
+
 
 
 

@@ -90,13 +90,21 @@ public class RedisDao {
                         jedis.select(1);
                         //如果检索词是stockCode，则不需要做模糊匹配
                         if (jedis.sismember("stockCode", key)) {
+                            log.info("在数据库1找到"+key);
                             res.add(key);
                         } else {
+                            jedis.select(5);
+                            if(jedis.exists(key)){
+                                res.addAll(jedis.smembers(key));
+                                log.info("在数据库5找到"+jedis.smembers(key));
+                            }
                             //检索词为文字，进行模糊匹配
-                            for (int j = 2; j < 5; j++) {
-                                jedis.select(j);
-                                res.addAll(FuzzySearchList(key, j));
-                                log.info("debug"+res.toString());
+                            else {
+                                for (int j = 2; j < 5; j++) {
+                                    jedis.select(j);
+                                    res.addAll(FuzzySearchList(key, j));
+                                    log.info("debug"+res.toString());
+                                }
                             }
                         }
                         jedis.close();
