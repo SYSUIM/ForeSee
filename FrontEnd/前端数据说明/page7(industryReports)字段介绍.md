@@ -12,9 +12,10 @@
 "totalpage"--总页数
 
 ## reports部分
-"title"--公告标题
-"url"--公告链接
-"date"--发布时间                                                                                                                                                  "research"--报告所研究的年份
+"title"--标题
+"url"--链接
+"date"--发布时间
+"research"--报告所研究的年份
 
 
 
