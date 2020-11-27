@@ -66,12 +66,17 @@
 - 考虑分片及复制集
 - 根据前端页面需求修改并优化数据访问层
 
+#### 2020.11.13
+
+- 添加了新的数据库请求
+- 更正了spring cloud的bug
+
 ### TODO
 
 1. 将项目的部分组件升级为spring cloud alibaba
 2. 写项目的说明文档
 3. nacos运行占用线程过多如何解决
- 
+
 
 ## SuoyinUpdateLog
 
