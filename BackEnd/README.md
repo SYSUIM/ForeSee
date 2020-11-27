@@ -40,14 +40,4 @@ ForeSee
 | ------------- | ------ | ------------------------------------------------------------ |
 | JDK           | 1.8    | https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html |
 | Redis         | 5.0.8   | https://redis.io/download                                    |
-| MongoDB | 2.6.10 | https://www.mongodb.com/ |
-
-
-## 人员分工
-
-### 后端组人员分工
-
-Jia Chang：Spring Cloud框架
-Qian Yin Kuang：Spring Cloud框架
-Jia Yi Li：数据库
-Chong Wen Du：数据库
+| MongoDB       | 2.6.10 | https://www.mongodb.com/

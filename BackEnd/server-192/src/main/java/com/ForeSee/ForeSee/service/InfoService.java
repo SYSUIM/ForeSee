@@ -14,8 +14,6 @@ import java.util.List;
 @Service
 public class InfoService {
     @Autowired
-    StockNotice stockNotice;
-    @Autowired
     RedisDao redisDao;
     /**
      * 先将检索词传给redis，让redis找出这个公司的代号，再用mongodb查出他的信息
@@ -50,19 +48,22 @@ public class InfoService {
             mongoClient = MongoConn.getConn();
             sb = new StringBuffer("{");
             String companyInfo = CompanyInfo.getCompanyInfo(stockCode, mongoClient);
-            sb.append(companyInfo.substring(1, companyInfo.length() - 1));
+            sb.append(companyInfo, 1, companyInfo.length() - 1);
             sb.append(",");
             String stockNews = StockNews.getThreeLatestStockNews(stockCode, mongoClient);
-            sb.append(stockNews.substring(1, stockNews.length() - 1));
+            sb.append(stockNews, 1, stockNews.length() - 1);
             sb.append(",");
             String stockNotice = StockNotice.getThreeLatestStockNotice(stockCode, mongoClient);
-            sb.append(stockNotice.substring(1, stockNotice.length() - 1));
-            sb.append(",\"profit\":{");
+            sb.append(stockNotice, 1, stockNotice.length() - 1);
+            sb.append(",\"profit\":");
             String profit = Profit.getProfit(stockCode, mongoClient);
-            sb.append(profit.substring(1, profit.length() - 1));
-            sb.append("},");
+            sb.append(profit);
+            sb.append(",");
             String geo = GeoInfo.getCompanyGeoInfo(stockCode,mongoClient);
             sb.append(geo);
+            sb.append(",");
+            String contact=CompanyInfo.getContactInfo(stockCode,mongoClient);
+            sb.append(contact,1,contact.length() -1);
             sb.append("}");
         }finally {
             mongoClient.close();
@@ -81,6 +82,60 @@ public class InfoService {
             mongoClient = MongoConn.getConn();
             sb.append(IndustryInfo.getIndustryInfo(industryCode,mongoClient));
         }finally {
+            mongoClient.close();
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 返回单个stockCode的所有Notice，由新到旧，每页20条
+     * @param stockCode
+     * @param page
+     * @return
+     */
+    public String getAllNotice(String stockCode, String page){
+        MongoClient mongoClient=null;
+        StringBuilder sb=new StringBuilder();
+        try{
+            mongoClient=MongoConn.getConn();
+            sb.append(StockNotice.getAllStockNotice(stockCode,mongoClient,page));
+        }finally{
+            mongoClient.close();
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 返回单个stockCode的所有News，由新到旧，每页20条
+     * @param stockCode
+     * @param page
+     * @return
+     */
+    public String getAllNews(String stockCode, String page){
+        MongoClient mongoClient=null;
+        StringBuilder sb=new StringBuilder();
+        try{
+            mongoClient=MongoConn.getConn();
+            sb.append(StockNews.getAllStockNews(stockCode,mongoClient,page));
+        }finally{
+            mongoClient.close();
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 返回行业分析报告，由新到旧，每页20条
+     * @param industryCode
+     * @param page
+     * @return
+     */
+    public String getIndustryReports(String industryCode,String page){
+        MongoClient mongoClient=null;
+        StringBuilder sb=new StringBuilder();
+        try{
+            mongoClient=MongoConn.getConn();
+            sb.append(IndustryReports.getIndustryReports(industryCode,mongoClient,page));
+        }finally{
             mongoClient.close();
         }
         return sb.toString();

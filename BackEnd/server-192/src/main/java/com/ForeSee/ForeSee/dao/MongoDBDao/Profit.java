@@ -12,7 +12,11 @@ public class Profit {
     public static String getProfit(String stockCode, MongoClient client){
         MongoCollection<Document> coll = client.getDatabase("ForeSee").getCollection(table);
         Document doc=coll.find(eq("stock_code",stockCode)).first();
-        doc.remove("_id");
-        return doc.toJson();
+        String result="";
+        if(doc!=null&&!doc.isEmpty()){
+            doc.remove("_id");
+            return doc.toJson();
+        }
+        else return "{}";
     }
 }

@@ -1,7 +1,10 @@
 server:
   port: 6666
 
+
 spring:
+  profiles:
+      active: prod  # 指定配置文件
   application:
      name: springcloud-gateway
   cloud:
@@ -19,20 +22,31 @@ spring:
          - id: springcloud-foresee2
            uri: lb://springcloud-foresee
            predicates:
-             - Path=/allInfo/**
+             - Path=/allNotice/**
              - Method=GET
 
          - id: springcloud-foresee3
            uri: lb://springcloud-foresee
            predicates:
+             - Path=/allNews/**
+             - Method=GET
+
+         - id: springcloud-foresee4
+           uri: lb://springcloud-foresee
+           predicates:
+             - Path=/allInfo/**
+             - Method=GET
+
+         - id: springcloud-foresee5
+           uri: lb://springcloud-foresee
+           predicates:
              - Path=/industryInfo/**
              - Method=GET
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8888/eureka/
-  instance:
-    instance-id: springcloud-gateway-6666
-    prefer-ip-address: true
+
+         - id: springcloud-foresee6
+           uri: lb://springcloud-foresee
+           predicates:
+             - Path=/industryReports/**
+             - Method=GET
 

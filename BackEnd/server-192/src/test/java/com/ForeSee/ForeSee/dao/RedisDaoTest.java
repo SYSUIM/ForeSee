@@ -33,7 +33,7 @@ public class RedisDaoTest {
 
     @Test
     public void getStockCodeListTest(){
-        String query = "汽车 上海 中天 东方";
+        String query = "600485 BK0427 汽车 中环";
         log.info("使用"+query+"进行模糊查询");
         List<String> result = redisDao.getStockCodeList(query);
         log.info(result.toString());

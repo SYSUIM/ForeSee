@@ -15,14 +15,16 @@ public class GeoInfo {
     private static final String table="geo";
     public static String getCompanyGeoInfo(String stockCode, MongoClient client){
         MongoCollection<Document> collection=client.getDatabase("ForeSee").getCollection(table);
-        StringBuilder sb=new StringBuilder("\"geo\":");
-        Document document = collection.find(in("stock_code", stockCode)).first();
-        document.remove("_id");
-        if (!document.isEmpty()){
+        StringBuilder sb=new StringBuilder("\"geo\":[");
+        MongoCursor<Document> cursor = collection.find(in("stock_code", stockCode)).iterator();
+        if(!cursor.hasNext()) sb.append("{}");
+        while(cursor.hasNext()){
+            Document document=cursor.next();
+            document.remove("_id");
+            document.remove("industry_code");
             sb.append(document.toJson());
-        }else{
-            sb.append("{}");
         }
+        sb.append("]");
         return sb.toString();
     }
 }

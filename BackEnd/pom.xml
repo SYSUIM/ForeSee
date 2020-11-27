@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>client-121</module>
+        <module>client-222</module>
         <module>eurekaServer-222</module>
         <module>server-192</module>
         <module>gateway-222</module>

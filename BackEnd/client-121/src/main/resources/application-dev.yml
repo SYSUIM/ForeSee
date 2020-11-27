@@ -1,8 +1,0 @@
-# 开发环境配置文件
-server:
-  port: 8288
-  servlet:
-    context-path: /ForeSee
-
-# 发送给服务端的根url
-httpUrl: http://localhost:8287/ForeSee

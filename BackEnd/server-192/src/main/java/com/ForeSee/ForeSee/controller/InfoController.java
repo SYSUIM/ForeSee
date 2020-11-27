@@ -1,7 +1,6 @@
 package com.ForeSee.ForeSee.controller;
 
 import com.ForeSee.ForeSee.service.InfoService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +25,51 @@ public class InfoController {
         String companyInfo = infoService.getCompanyInfo(query);
         log.info("Result: " + companyInfo);
         return companyInfo;
+    }
+
+    /**
+     * 根据stockCode返回某一页的News
+     * @param stockCode page
+     * @return
+     */
+    @GetMapping("/allNews/{stockCode}/{page}")
+    public String getAllNews(@PathVariable("stockCode")String stockCode,@PathVariable("page")String page){
+        log.info("Receive  getAllNews stockCode: " + stockCode+" page:"+page);
+        log.info("Search for News...");
+        String companyInfo = infoService.getAllNews(stockCode, page);
+        log.info("Result: " + companyInfo);
+        return companyInfo;
+    }
+
+
+    /**
+     * 根据stockCode返回某一页的Notice
+     * @param stockCode
+     * @param page
+     * @return
+     */
+    @GetMapping("/allNotice/{stockCode}/{page}")
+    public String getAllNotice(@PathVariable("stockCode")String stockCode,@PathVariable("page")String page){
+        log.info("Receive  getAllNotice stockCode: " + stockCode+" page:"+page);
+        log.info("Search for Notice...");
+        String companyInfo = infoService.getAllNotice(stockCode, page);
+        log.info("Result: " + companyInfo);
+        return companyInfo;
+    }
+
+    /**
+     * 根据industryCode返回某一页的行业分析报告
+     * @param industryCode
+     * @param page
+     * @return
+     */
+    @GetMapping("/industryReports/{industryCode}/{page}")
+    public String getIndustryReports(@PathVariable("industryCode")String industryCode,@PathVariable("page")String page){
+        log.info("Receive  getIndustryReports industryCode: " + industryCode+" page:"+page);
+        log.info("Search for IndustryReports...");
+        String industryReports = infoService.getIndustryReports(industryCode, page);
+        log.info("Result: " + industryReports);
+        return industryReports;
     }
 
     /**
@@ -55,6 +99,8 @@ public class InfoController {
         log.info("Result: " + industryInfo);
         return industryInfo;
     }
+
+
 
 }
 

@@ -31,37 +31,47 @@ public class CompanyInfo {
     // 前端要求字段与数据库中字段名不一致，在这里修正
     // 日后如果要求的字段有变，直接在这里修改就可以了
     // 多个stock_code对应的公司信息的字段
-    private static class MultiFieldReflectHolder {
-        static Map<String, String> multiFieldReflect = new HashMap();
+    private static class MultiCompanyInfoReflectHolder {
+        static Map<String, String> multiCompanyInfoReflect = new HashMap();
         static {
-            multiFieldReflect.put("former_name", "entName");
-            multiFieldReflect.put("stock_code", "stock_code");
-            multiFieldReflect.put("registered_address", "regAddr");
-            multiFieldReflect.put("Logo", "entLogo");
-            multiFieldReflect.put("industry_code", "industry_code");
+            multiCompanyInfoReflect.put("former_name", "entName");
+            multiCompanyInfoReflect.put("stock_code", "stock_code");
+            multiCompanyInfoReflect.put("registered_address", "regAddr");
+            multiCompanyInfoReflect.put("Logo", "entLogo");
+            multiCompanyInfoReflect.put("industry_code", "industry_code");
 
         }
     }
     // 单个stock_code对应的公司信息的字段
-    private static class FieldReflectHolder {
-        static Map<String, String> fieldReflect = new HashMap();
+    private static class SingleCompanyInfoReflectHolder {
+        static Map<String, String> singleCompanyInfoReflect = new HashMap();
         static {
-            fieldReflect.put("former_name", "entName");
-            fieldReflect.put("stock_code", "stock_code");
-            fieldReflect.put("registered_address", "regAddr");
-            fieldReflect.put("Logo", "entLogo");
-            fieldReflect.put("industry_code", "industry_code");
-
+            singleCompanyInfoReflect.put("former_name", "entName");
+            singleCompanyInfoReflect.put("describe","describe");
+            singleCompanyInfoReflect.put("stock_code", "stock_code");
+            singleCompanyInfoReflect.put("logo", "entLogo");
         }
     }
+
+    // stock_code对应的contact字段
+    private static class  ContactReflectHolder{
+        static Map<String, String> contactReflect= new HashMap();
+        static {
+            contactReflect.put("address", "regAddr");
+            contactReflect.put("office", "office");
+            contactReflect.put("fax", "fax");
+            contactReflect.put("email", "email");
+        }
+    }
+    private static Map<String, String> getContactReflect(){return ContactReflectHolder.contactReflect;}
     private static Map<String, String> getTableStructure() {
         return TableStructureHolder.tableStructure;
     }
-    private static Map<String, String> getFieldReflect() {
-        return FieldReflectHolder.fieldReflect;
+    private static Map<String, String> getSingleCompanyInfoReflect() {
+        return SingleCompanyInfoReflectHolder.singleCompanyInfoReflect;
     }
-    private static Map<String, String> getMultiFieldReflect() {
-        return MultiFieldReflectHolder.multiFieldReflect;
+    private static Map<String, String> getMultiCompanyInfoReflect() {
+        return MultiCompanyInfoReflectHolder.multiCompanyInfoReflect;
     }
     private static final String table="BasicInfo";
     private static MongoCollection<Document> collection;
@@ -79,7 +89,7 @@ public class CompanyInfo {
             Document originDoc = null, extractedDoc = new Document();
             while (cursor.hasNext()) {
                     originDoc = cursor.next();
-                    Map<String, String> multiFileReflect = getMultiFieldReflect();
+                    Map<String, String> multiFileReflect = getMultiCompanyInfoReflect();
                     for (String key : multiFileReflect.keySet()) {
                         extractedDoc.put(key, originDoc.get(multiFileReflect.get(key)));
                     }
@@ -95,6 +105,26 @@ public class CompanyInfo {
         return sb.toString();
     }
 
+    public static String getContactInfo(String stockCode,MongoClient client){
+        log.info("start to query contactInfo from MongoDB, stockCode=" + stockCode);
+        collection = client.getDatabase("ForeSee").getCollection(table);
+        sb=new StringBuilder("[\"contact\":");
+        Document originDoc = collection.find(in("stock_code", stockCode)).first();
+        Document extractedDoc = new Document();
+        if (originDoc!=null&&!originDoc.isEmpty()) {
+            Map<String, String> fileReflect = getContactReflect();
+            for (String key : fileReflect.keySet()) {
+                extractedDoc.put(key, originDoc.get(fileReflect.get(key)));
+            }
+            sb.append(extractedDoc.toJson()+",");
+        }else{
+            sb.append("{}");
+        }
+        if(!sb.equals("[\"contact\":{}")) sb.deleteCharAt(sb.length()-1);
+        sb.append("]");
+        return  sb.toString();
+    }
+
     /**
      * 使用表BasicInfo，返回单个公司的部分基本信息
      * @param stockCode
@@ -106,8 +136,8 @@ public class CompanyInfo {
         sb= new StringBuilder("[\"companyInfo\":");
         Document originDoc = collection.find(in("stock_code", stockCode)).first();
         Document extractedDoc = new Document();
-        if (!originDoc.isEmpty()) {
-            Map<String, String> fileReflect = getFieldReflect();
+        if (originDoc!=null&&!originDoc.isEmpty()) {
+            Map<String, String> fileReflect = getSingleCompanyInfoReflect();
             for (String key : fileReflect.keySet()) {
                 extractedDoc.put(key, originDoc.get(fileReflect.get(key)));
             }
@@ -119,7 +149,7 @@ public class CompanyInfo {
         Map<String, String> tableStructure = getTableStructure();
         for (String name : tableStructure.keySet()) {
             sb.append("{\"name\":\"" + name + "\",\"value\":");
-            if (!originDoc.isEmpty()) {
+            if (originDoc!=null&&!originDoc.isEmpty()) {
                 sb.append("\"");
                 sb.append(originDoc.get(tableStructure.get(name)));
                 sb.append("\"");

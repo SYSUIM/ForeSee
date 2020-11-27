@@ -1,0 +1,14 @@
+# 开发环境配置文件
+server:
+  port: 8288
+  servlet:
+    context-path: /ForeSee
+
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+
+http:
+  REST_URL_PREFIX: http://127.0.0.1:6666
