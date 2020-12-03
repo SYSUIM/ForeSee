@@ -1,6 +1,6 @@
 ## 整体框架
 
-<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203214542183.png" width="60%" height="60%"/>
+<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203214542183.png" width="70%" height="60%"/>
 
 ## 各模块简介
 
@@ -24,7 +24,7 @@
 
 * 实现思路
 
-    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203225806013.png" width="60%" height="60%"/>
+    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203225806013.png" width="80%" height="60%"/>
 
 #### 主线2：Transformer
 
