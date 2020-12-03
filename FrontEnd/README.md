@@ -97,10 +97,10 @@
 
 #### <span id="backtop">3.1.1 BackTop.vue</span>
 
-该组件提供了鼠标单击后页面滑动回到顶部的功能，在网页右下角显示。
-
 <p align = "center">
 <img src = "updateLog.assets/image-20201203082557542-1606971013322.png"/>
+
+该组件提供了鼠标单击后页面滑动回到顶部的功能，在网页右下角显示。
 </p>
 
 <br>
@@ -142,223 +142,143 @@
 #### <span id="cta">3.1.4 召唤组件(CTA.vue)</span>
 <p align = "center">
 <img src = "updateLog.assets/image-20201203083142960.png"/>
-</p>
-
 宣传栏，强调团队服务价值。
+</p>
 
 <br>
 
 #### <span id="footer">3.1.5 尾部组件(Footer.vue)</span>
 <p align = "center">
 <img src = "updateLog.assets/image-20201203083246503.png"/>
-</p>
-
 展示logo、slogan、邮箱联系方式和版权声明。
+</p>
 
 <br>
 
 ### 3.2 首页 Index.vue
-<p>
+<p align = "center">
 <img src = "updateLog.assets/1606986562(1).png"/>
 </p>
 
-> 包含组件
+- **包含组件**
+[BackTop.vue](#backtop), Search, [Footer.vue](#footer)
 
-BackTop
+- **功能定位**
+首页，展示项目logo、标语、简介、联系方式；提供检索入口。
 
-search*
+- **设计解读**
+1. 页面的主要部分为搜索框，封装在search.vue中
+2. search.vue包含项目标语、搜索提示词及两个搜索框组件：SearchBox1.vue(企业搜索框组件), SearchBox2.vue(行业搜索框组件)
+3. 两个搜索框组件中包含搜索框，实现实时检索下拉推荐菜单，与方法transFromRealtime(item)绑定；搜索按钮，实现输入框为空时禁用搜索；
 
-Footer
+- **数据接口**
+     - 通过url接口【“http://222.200.184.74:8288/ForeSee/retrieval/” + this.input】、【“http://222.200.184.74:8288/ForeSee/industry/” + this.input】
+     - 获取输入内容的企业/行业搜索结果​通过url接口【“http://222.200.184.74:8288/ForeSee/retrieval/” +item】获取输入内容的下拉推荐菜单
 
-(未打*的为公共组件)
+<br>
 
-> 功能定位
+## 3.3 企业检索结果页面 Retrieval.vue
+<p align = "center">
+<img src = "updateLog.assets/image-20201203083915669.png"/>
+</p>
 
-首页，展示项目logo、标语、简介、联系方式；提供企业与行业两个检索入口
+- 包含组件
 
-> 设计解读
+[BackTop.vue](#backtop), [Header.vue](#header), [Banner](#banner), Content, [CTA.vue](#cta), [Footer.vue](#footer)
 
-1.页面的主要部分为搜索框，封装在search.vue中
-
-2.search.vue包含项目标语、搜索提示词及两个搜索框组件：
-
-​	SearchBox1.vue企业搜索框组件
-
-​    SearchBox2.vue行业搜索框组件
-
-3.两个搜索框组件中包含搜索框，实现实时检索下拉推荐菜单，与方法transFromRealtime(item)绑定；搜索按钮，实现输入框为空时禁用搜索；
-
-> 输入输出
-
-​    通过url接口【“http://222.200.184.74:8288/ForeSee/retrieval/” + this.input】、【“http://222.200.184.74:8288/ForeSee/industry/” + this.input】获取输入内容的企业/行业搜索结果
-
-​    通过url接口【“http://222.200.184.74:8288/ForeSee/retrieval/” +item】获取输入内容的下拉推荐菜单
-
-
-
-## 3.企业检索结果页面Retrieval.vue
-
-![image-20201203083915669](updateLog.assets/image-20201203083915669.png)
-
-> 包含组件
-
-BackTop,
-
-Header,
-
-Banner,
-
-Content*,
-
-CTA,
-
-Footer
-
-(未打*的为公共组件)
-
-> 功能定位
-
+-  功能定位
 企业检索页，将检索的结果企业以表格的方式展示出来
 
-> 设计解读
-
+- 设计解读
 1. 页面的主要部分为检索结果列表，封装在Content.vue中
 2. 检索匹配的结果企业以每行三个的方式展示出来，每个图形模块包含了企业的logo、名称以及详细地址。
 3. 鼠标移动至任一企业图形模块上时，会出现放大、增加阴影的动画效果。单击该模块即可跳转至该企业的详情页。
 
-> 输入输出
+- 输入输出
+通过url接口 http://222.200.184.74:8288/ForeSee/companyInfo/ 获取企业信息
 
-通过url接口“http://222.200.184.74:8288/ForeSee/companyInfo/”获取企业信息
+<br>
 
+## 3.4 行业报告页面 IndustryReport.vue
+<p align = "center">
+<img src = "updateLog.assets/image-20201203083558049.png"/>
+</p>
 
+- 包含组件
 
-## 4.行业报告页面 IndustryReport.vue
+[BackTop.vue](#backtop), [Header.vue](#header), [Banner](#banner), IndustryReportComponent, [CTA.vue](#cta), [Footer.vue](#footer)
 
-![image-20201203083558049](updateLog.assets/image-20201203083558049.png)
-
-> 包含组件
-
-BackTop,
-
-Header,
-
-Banner,
-
-CTA,
-
-Footer,
-
-IndustryReportComponent*
-
-(未打*的为公共组件)
-
-> 功能定位
+- 功能定位
 
 互联网行业分析报告的列表展示页面
 
-> 设计解读
+- 设计解读
 
 1. 页面包括常用的公共组件以及中间互联网行业分析报告列表部分。
 2. 报告列表被封装在组件IndustryReportComponent.vue中，主要使用了Element-UI中带筛选功能的表格组件来实现，主要展示了行业报告的发表时间、报告标题和报告所分析的年份。
 3. 发表时间可选择进行升序或者降序排列，而分析年份可根据所需要查看的年份进行结果的筛选。鼠标移动至标题可实现颜色的变换，单击报告标题可跳转至相应报告的外部网页。
 
-> 输入输出
+- 输入输出
 
-通过url接口"http://222.200.184.74:8288/ForeSee/industryReports/industryCode/1"获取行业报告信息
+通过url接口 http://222.200.184.74:8288/ForeSee/industryReports/industryCode/1 获取行业报告信息
 
 
 
-## 5.新闻展示页面 MoreNews.vue
+## 3.5 新闻展示页面 MoreNews.vue
 
-> 包含组件
+- 包含组件
 
-Header
+[BackTop.vue](#backtop), [Header.vue](#header), [Banner](#banner), MoreNewsComponent, 
+MoreNewsComponent, [CTA.vue](#cta), [Footer.vue](#footer)
 
-Banner
-
-MoreNewsComponent *
-
-PaginationForNews*
-
-CTA
-
-Footer
-
-(未打*的为公共组件)
-
-> 功能定位
+- 功能定位
 
 展示详细的新闻列表
 
-> 设计解读
+- 设计解读
 
-1.页面的主要部分为新闻列表，封装在MoreNewsComponent.vue中
+1. 页面的主要部分为新闻列表，封装在MoreNewsComponent.vue中
+2. 组件中设置以日期与标题为表头的列表，一页显示20条结果，分页封装在分页组件PaginationForNews.vue 中
+3. 分页组件中通过方法currentChange(val) 实现点击数字进行页面切换；prevpage(val) 实现跳转到前一页；nextpage(val) 实现跳转到后一页
 
-2.组件中设置以日期与标题为表头的列表，一页显示20条结果，分页封装在分页组件PaginationForNews.vue 中
+- 输入输出
 
-3.分页组件中通过方法currentChange(val) 实现点击数字进行页面切换；prevpage(val) 实现跳转到前一页；nextpage(val) 实现跳转到后一页
+通过url接口 http://222.200.184.74:8288/ForeSee/allNews/" + this.stockCode +"/" +page 获取当前页面的新闻信息
 
-> 输入输出
+## 3.6 公告展示页面 MoreNotice.vue
 
-通过url接口【"http://222.200.184.74:8288/ForeSee/allNews/" + this.stockCode +"/" +page】获取当前页面的新闻信息
+- 包含组件
 
-## 6.公告展示页面 MoreNotice.vue
+[BackTop.vue](#backtop), [Header.vue](#header), [Banner](#banner), MoreNoticeComponent, PaginationForNotice, [CTA.vue](#cta), [Footer.vue](#footer)
 
-> 包含组件
-
-Header 
-
-Banner
-
-MoreNoticeComponent *
-
-PaginationForNotice *
-
-CTA
-
-Footer
-
-(未打*的为公共组件)
-
-> 功能定位
+- 功能定位
 
 展示详细的公告列表
 
-> 设计解读
+- 设计解读
 
-1.页面的主要部分为公告列表，封装在MoreNoticeComponent.vue中
+1. 页面的主要部分为公告列表，封装在MoreNoticeComponent.vue中
+2. 组件中设置以日期与标题为表头的列表，一页显示20条结果，分页封装在分页组件PaginationForNotice.vue 中
+3. 分页组件中通过方法currentChange(val) 实现点击数字进行页面切换；prevpage(val) 实现跳转到前一页；nextpage(val) 实现跳转到后一页
 
-2.组件中设置以日期与标题为表头的列表，一页显示20条结果，分页封装在分页组件PaginationForNotice.vue 中
+- 输入输出
 
-3.分页组件中通过方法currentChange(val) 实现点击数字进行页面切换；prevpage(val) 实现跳转到前一页；nextpage(val) 实现跳转到后一页
+通过url接口 http://222.200.184.74:8288/ForeSee/allNotice/" + this.stockCode +"/" +page 获取当前页面的公告信息
 
-> 输入输出
+## 3.7 行业信息展示页面 Industry.vue
+<p align = "center">
+<img src = "updateLog.assets/industry.jpg"/>
+</p>
 
-通过url接口【"http://222.200.184.74:8288/ForeSee/allNotice/" + this.stockCode +"/" +page】获取当前页面的公告信息
+- 包含组件  
 
-## 7.行业信息展示页面 Industry.vue
+[BackTop.vue](#backtop), [Header.vue](#header), [Banner](#banner), Tabs, [CTA.vue](#cta), [Footer.vue](#footer) 
 
-![industry](updateLog.assets/industry.jpg)
-
-> 包含组件  
-
-BackTop  
-
-Header  
-
-Banner  
-
-Tabs*  
-
-Footer  
-
-(未打*表示公共组件)  
-
-> 功能定位
+- 功能定位
 
 行业检索后的详情页，展示了某行业的相关企业及其可视化
 
-> 设计解读： 
+- 设计解读： 
 
 Tabs.vue   
 
@@ -368,42 +288,25 @@ Tabs.vue
 
 2. 该行业相关企业的可视化信息，目前有相关企业的地理坐标图，之后可能会加入企业竞争关系图、上下游关系图 Geo(目前)
 
-> 输入输出
+- 输入输出
 
-通过url接口`"http://222.200.184.74:8288/ForeSee/industryInfo/" + this.industryCode`获取行业的相关信息
+通过url接口 `http://222.200.184.74:8288/ForeSee/industryInfo/" + this.industryCode` 获取行业的相关信息
 
+<br>
 
-## 8.企业信息详情页面 Detail.vue
+## 3.8 企业信息详情页面 Detail.vue
+<p align = "center">
+<img src ="updateLog.assets/detail.jpg"/>
+</p>
 
-![detail](updateLog.assets/detail.jpg)
+- 组件
+[BackTop.vue](#backtop), [Header.vue](#header), Card, LineChart, [CTA.vue](#cta), [Footer.vue](#footer), News, GeoSingle, NewsList 
 
-> 组件
-
-没有完全组件化 
-
-BackTop
-
-Header
-
-Card*
-
-LineChart*
-
-News*
-
-GeoSingle*
-
-NewsList*
-
-CTA
-
-Footer  
-
-> 功能定位
+- 功能定位
 
 企业详情展示页面  
 
-> 设计解读
+- 设计解读
 
 Card.vue  
 
@@ -425,12 +328,9 @@ GeoSingle.vue
 
 该公司地理位置的地图显示
 
-> 输入输出
+- 输入输出
 
-通过url接口`"http://222.200.184.74:8288/ForeSee/allInfo/" + this.stockCode`获取企业的相关信息
-
-
-
+通过url接口 `http://222.200.184.74:8288/ForeSee/allInfo/" + this.stockCode` 获取企业的相关信息
 
 ## <span id = "interface">4. 数据接口</span>
 
@@ -441,202 +341,3 @@ GeoSingle.vue
 | 3    | http://121.46.19.26:8288/ForeSee/industryInfo/BK0427 | 行业代码                                     | 企业地理信息       | Geo.vue                          |
 | 4    | http://121.46.19.26:8288/ForeSee/allNews/300433/2    | 股票代码；页数                               | 企业新闻           | MoreNews.vue                     |
 | 5    | http://121.46.19.26:8288/ForeSee/allNotice/600496/2  | 股票代码；页数                               | 企业公告           | MoreNotice.vue                   |
-
-
-
-## 五、开发进程及会议记录
-
-### 2020年10月7日
-
-#### 1. 规划
-
-##### 1.1 第一阶段：完成三个网页的布局、UI 设计
-
-```
-网页一：首页，包含但不限于搜索框
-网页二：检索条目展示，包括一些分类标签。可视化部分先留白。
-网页三：企业详情
-1) 基本信息：企业logo、名称、法人信息、注册时间等
-2) 地图：地址、行业地域分布等
-3) 知识图谱：各企业、法人之间的关系
-4) 同类型企业推荐
-5) 其他可视化图表
-```
-
-##### 1.2 第二阶段：根据模型组数据进行可视化展示和迭代
-
-##### 1.3 第三阶段：企业发展评估&预测
-
-```
- 1-10评估值，可视化
-```
-
-#### 2. 确定网页设计模板
-
-```
-网页模板下载地址：http://d.weidea.net/demo.php?id=146747
-```
-
-#### 3. 待解决
-
-     1. 分析信息类别，确定组织形态
-     2. 将静态网页转换成 Vue project
-
-
-
-### 2020年10月11日
-
-#### 1.明确业务流程
-
-     1. 首页查询query是: 公司名称，股票代码，或者股票名称
-     2. 将query传给后端，后端将所有结果(数组)一并返回前端
-     3. 点击某家企业，跳转至详情页，以stock_code为唯一标识符传给后端请求数据
-
-#### 2.本周主要工作
-
-```
- 1. 制作网站demo
- 2. 调通前后端
-```
-
-#### 3.待解决
-
-```
- 页面的完善和优化
-```
-
-
-
-### 2020年10月16日
-
-#### 1. 本周主要工作
-
-```
- 1. 网站部署
- 2. 绘制企业营收折线图
-```
-
-#### 2. 待解决
-
-     1. 新闻、公告详情页；
-     2. 增加新的模块：行业分析；
-     3. 第二页(检索结果展示页)：行业内企业的分布地图；
-     4. 第三页(企业详情页)：该企业的地理位置(地图)；
-     5. 重新确定数据格式；
-
-#### 3. 规划
-
-```
-   增加企业的可视化内容：如，公司之间的竞技关系，上下游关系(硬件供应商、零售商)，随时间战略演变图等；增加行业可视化内容。
-```
-
-
-
-### 2020年10月23日
-
-#### 1. 本周主要工作
-
-     1. 制作网页图片素材
-     2. 首页增加检索入口：企业/行业
-     3. 行业、企业地图展示
-     4. 美化各个页面，如段落首字下沉、文字折叠与展开、增加阴影效果等
-     5. 重新确定数据格式，撰写前端数据格式介绍
-
-#### 2. 待解决
-
-     1. 新闻、公告详情页；
-     2. 撰写 readme 项目模块文档
-
-#### 3. 检索逻辑
-
-     1. 首页输入行业代码、行业名称——返回属于该行业的所有企业 + 可视化
-     2. 首页输入企业名称、股票代码、股票名称——跳转至企业网格页面
-
-#### 4. 规划
-
-     1. 检索优化：智能检索、语义检索、智能推荐
-     2. 可视化：以互联网行业某企业为例，调研文献资料，思考可以从哪些维度对企业竞争对手、竞争领域、市场份额、上下游产业链等内容进行分析
-
-
-
-### 2020年11月1日
-
-#### 1. 本周主要工作
-
-     1. 完善网站逻辑
-     2. 页面的细节完善、美化
-     3. 新闻、公告详情页页面设计
-
-
-
-### 2020年11月7日
-
-#### 1. 本周主要工作
-
-     1. 改进企业网格页logo样式
-     2. 新闻、公告动态摘要
-     3. 新闻、公告详情页联调
-     4. 撰写 readme 项目模块文档、接口文档
-     5. 更新前端数据格式说明文档
-
-#### 2. 待解决
-
-     1. 提升页面加载效率
-     2. 可视化调研和设计
-
-
-
-### 2020年11月13日
-
-#### 1. 本周主要工作
-
-     1. 增加新模块
-     2. 解决页面存在的bug
-
-#### 2. 待解决
-
-     1. 行业分析报告页面设计
-     2. 实时搜索提示
-
-
-
-### 2020年11月20日
-
-#### 1. 本周主要工作
-
-     1. 实现搜索框新功能：实时检索提示(通过在前端建立一个关于检索词的小型的库)
-     2. 搜索框优化：不允许检索词为空
-     2. 增加新模块：互联网行业分析报告
-
-#### 2. 待解决
-
-     1. 可视化方案设计
-     2. 页面字体字号调整
-     3. 后端返回文本文件
-
-
-
-### 2020年12月4日
-
-#### 1. 本周主要工作
-
-     1. 编写模块文档
-
-#### 2. 待解决
-
-     1. 页面bug
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
