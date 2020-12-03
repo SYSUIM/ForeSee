@@ -12,12 +12,12 @@ import json
 # 进程45145
 
 #获取词向量
-def bert(word):
+def bert(word_list):
     bc = BertClient(port=5777,port_out=5778)
     print("encoding ......")
     #返回np.array
-    vec = bc.encode(word)   
-    return vec
+    vec = bc.encode(word_list)   
+    return vec[0]
 
 #读入json文件
 def readJson(jsonpath):
@@ -33,12 +33,16 @@ def writeJson(jsonpath,file):
 
 def getCode(ori_jsonpath,new_jsonpath,wordList):
     ori_fileList= readJson(ori_jsonpath)
-    for ori_file in ori_fileList:        
+    for ori_file in ori_fileList:
+        if os.path.exists(new_jsonpath+ori_file["stock_code"]+".json"):
+            continue        
         for word in wordList:
             #获取编码
+            if ori_file[word] == "":
+                ori_file[word] = "无"
             vec = bert(ori_file[word])
-            #将value值更新为向量
-            ori_file[word] = vec
+            #以list形式保存数组
+            ori_file[word] = vec.tolist()
             writeJson(new_jsonpath+ori_file["stock_code"]+".json",ori_file)
 
 

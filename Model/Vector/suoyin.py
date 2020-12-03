@@ -27,5 +27,6 @@ def bert(word):
     bc = BertClient(port=5777,port_out=5778)
     print("encoding ......")
     #返回np.array
-    vec = bc.encode(word)   
-    return vec
+    vec = bc.encode([word])
+    #转为列表
+    return vec[0].tolist()
