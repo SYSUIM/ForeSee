@@ -8,7 +8,7 @@
 
 * **数据类型**
 
-<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203215809847.png" width="50%" height="60%" />
+<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203215809847.png" width="45%" height="60%" />
 
 * **数据组织形式**
 
@@ -16,7 +16,7 @@
 
 ### 竞争关系抽取部分
 
-<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203222951910.png" width="50%" height="60%"/>
+<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203222951910.png" width="45%" height="60%"/>
 
 #### 主线1：规则匹配和抽取
 
@@ -34,7 +34,7 @@
 
 * **实现流程**
 
-    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203223029266.png" width="55%" height="60%" />
+    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203223029266.png" width="65%" height="60%" />
 
 * **所用模型**
 
