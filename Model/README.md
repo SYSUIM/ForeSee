@@ -34,7 +34,7 @@
 
 * **实现流程**
 
-    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203223029266.png" width="50%" height="60%" />
+    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203223029266.png" width="55%" height="60%" />
 
 * **所用模型**
 
