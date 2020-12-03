@@ -1,6 +1,10 @@
 ## 整体框架
 
+<<<<<<< HEAD
 <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203214542183.png" width="60%" height="60%" />
+=======
+<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203214542183.png" alt="image-20201203214542183" style="zoom:50%;" />
+>>>>>>> 89440cbf78940019c49f4a650376fe975789470f
 
 ## 各模块简介
 
@@ -8,7 +12,11 @@
 
 * **数据类型**
 
+<<<<<<< HEAD
 <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203215809847.png" width="60%" height="60%" />
+=======
+<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203215809847.png" alt="image-20201203215809847" style="zoom: 50%;" />
+>>>>>>> 89440cbf78940019c49f4a650376fe975789470f
 
 * **数据组织形式**
 
@@ -16,7 +24,11 @@
 
 ### 竞争关系抽取部分
 
+<<<<<<< HEAD
 <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203222951910.png" width="60%" height="60%" />
+=======
+<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203222951910.png" alt="image-20201203222951910" style="zoom:50%;" />
+>>>>>>> 89440cbf78940019c49f4a650376fe975789470f
 
 
 
@@ -26,7 +38,11 @@
 
 * 实现思路
 
+<<<<<<< HEAD
     <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203225806013.png" width="60%" height="60%" />
+=======
+    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203225806013.png" alt="image-20201203225806013" style="zoom: 50%;" />
+>>>>>>> 89440cbf78940019c49f4a650376fe975789470f
 
 #### 主线2：Transformer
 
@@ -36,7 +52,11 @@
 
 * **实现流程**
 
+<<<<<<< HEAD
     <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203223029266.png" width="60%" height="60%" />
+=======
+    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203223029266.png" alt="image-20201203223029266" style="zoom:50%;" />
+>>>>>>> 89440cbf78940019c49f4a650376fe975789470f
 
 * **所用模型**
 
