@@ -1,81 +1,48 @@
 # ForeSee
+> written by panzy.
 
-# 前端
+<br>
 
-## 一、技术栈
+[ForeSee](http://180.76.249.27/weibo/foresee/vue_project_08/index.html#/)是一套基于Vue框架，利用Spring Cloud集成MongoDB、MySQL，结合Redis快速索引的商业情报可视化系统。目前提供沪深两市上市企业公开信息的可视化服务。
 
-- [Vue.js](https://cn.vuejs.org)
-- [vue-cli-3](https://cli.vuejs.org/zh/)
-- [vue-router](https://router.vuejs.org/zh/)
-- [webpack](https://www.webpackjs.com/)
-- [aixos](https://github.com/axios/axios)
-- [Element-UI](http://element-cn.eleme.io/#/zh-CN)
-- [echarts](https://echarts.apache.org/zh/index.html)
+<br>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/release-1.0-red"/>
+  <img src = "https://img.shields.io/badge/language-python-blue.svg">
+<img src = "https://img.shields.io/badge/language-Java-green.svg">
+</p>
 
+## OUTLINE
+1. [Front Group](#front)
+2. [Back Group](#back)
+3. [Model Group](#model)
 
-## 二、项目结构
+## <span id = "front">1. Front Group</span>
 
-以下为 /src 目录下文件结构
+> Group Members: Feng Yanxia, Chen Jinying, Li Yi, Gong Zhilin, Peng Jiahui.
 
-```
-│  App.vue                                       //主组件
-│  main.js
-│  
-├─assets                                         //静态资源
-│  │  logo.png                                   //浏览器标签图表
-│  │  
-│  ├─images
-│  │      banner-bg.png
-│  │      cta-bg.png
-│  │      index-wordcloud.png
-│  │      logo-black.png
-│  │      logo-white.png
-│  │      
-│  └─js
-│          LineChart.js                          //企业营收折线图
-│          
-├─components                                     //组件
-│      Banner.vue                                //横幅
-│      Card.vue                                  //企业详情表格
-│      Content.vue                               //企业网格
-│      CTA.vue                                   //联系我们（广告标语）
-│      Footer.vue                                //尾部
-│      Geo.vue                                   //行业地图
-│      GeoSingle.vue                             //企业地图
-│      Header.vue                                //头部
-│      Industrial.vue                            //行业检索结果
-│      LineChart.vue                             //企业营收折线图
-│      News.vue                                  //新闻公告
-│      Search.vue                                //搜索框
-│      SearchBox1.vue                            //搜索框-企业检索
-│      SearchBox2.vue                            //搜索框-行业检索
-│      Tabs.vue                                  //标签-行业检索页
-│      Tabs2.vue                                 //备用
-│      
-├─mixins
-│      index.js
-│      
-├─router                                         //路由配置
-│      index.js
-│      
-└─views                                          //主要页面
-        Detail.vue                               //企业详情页
-        Index.vue                                //首页
-        Industry.vue                             //行业检索页
-        MoreNews.vue                             //新闻详情页
-        Retrieval.vue                            //企业检索页
-```
+前端组编写了相关可视化网页，[ForeSee](http://180.76.249.27/weibo/foresee/vue_project_08/index.html#/)提供了企业搜索、行业搜索和行业报告的检索入口，并针对上市企业公开信息进行可视化展示；对行业内企业信息进行可视化数据分析。
 
+具体技术细节参考前端小组[README](FrontEnd/README.md)。
 
+## <span id = "back">2. Back Group</span>
 
-## 三、后端接口
+> Group Members: Li Jiayi, Han Yuxuan, Kuang Qianyin, Jia Chang, Du Chongwen, Xiao Jingbo, Li Ziqian, Lin Jie, Zeng Linrong.
 
-| 序号 | URL 示例                                             | 参数                                         | 返回值             | 调用的网页或组件                 |
-| ---- | ---------------------------------------------------- | -------------------------------------------- | ------------------ | -------------------------------- |
-| 1    | http://121.46.19.26:8288/ForeSee/companyInfo/600485  | 股票代码；企业名称；<br />行业代码；行业名称 | 企业列表           | Retrieval.vue;<br />Industry.vue |
-| 2    | http://121.46.19.26:8288/ForeSee/allInfo/300433      | 股票代码；企业名称                           | 某个企业的全部信息 | Detail.vue                       |
-| 3    | http://121.46.19.26:8288/ForeSee/industryInfo/BK0427 | 行业代码                                     | 企业地理信息       | Geo.vue                          |
-| 4    | http://121.46.19.26:8288/ForeSee/allNews/300433/2    | 股票代码；页数                               | 企业新闻           | MoreNews.vue                     |
-| 5    | http://121.46.19.26:8288/ForeSee/allNotice/600496/2  | 股票代码；页数                               | 企业公告           | MoreNotice.vue                   |
+后端组分别完成了分布式数据库、索引库的开发。基于SpringCloud框架，数据库集成了MongoDB、MySQL，开发了分布式的存书数据库。基于Redis，索引端实现了检索词与数据库之间的快速联系。
 
+具体技术细节参考后端小组[README](BackEnd/README.md)
+
+## <span id = "model">3. Model Group</span>
+
+> Zeng Ying, Zhong Shanshan, Pan Ziyang, Chen Lehua, Huang Zhishan, Yu Yixia.
+
+模型组的工作主要有数据采集、竞争关系抽取和智能检索。通过合法地采集上市公司的公开数据，项目获得了上市公司的基本信息、相关公开数据等结构化数据，相关新闻、公告信息等非结构化数据以及通过第三方实时获取的地理位置坐标。通过正则表达式匹配和预训练模型对非结构化文本进行了竞争关系抽取；使用预训练模型对检索词和搜索结果文本进行Embedding，实现初步的语义检索。
+
+具体技术细节参考模型组[README](Model/README.md)
+
+## Contribution
+Members of the 2018 Class **Research Team** from School of Information Management of SYSU，lead by Prof. Li, contributed to ForeSee.
+
+Welcome to pull REQUESTS or ISSUES to us.
