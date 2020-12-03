@@ -1,6 +1,6 @@
 ## Introduction
 
-基于 Pytorch 的Transforner中文关系抽取处理模型。
+基于 Pytorch 的Transformer中文关系抽取处理模型。
 
 
 ## 环境依赖:
