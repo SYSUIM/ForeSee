@@ -1,6 +1,6 @@
 ## 整体框架
 
-<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203214542183.png" alt="image-20201203214542183" style="zoom:67%;" />
+<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203214542183.png" alt="image-20201203214542183" style="zoom:50%;" />
 
 ## 各模块简介
 
@@ -8,7 +8,7 @@
 
 * **数据类型**
 
-<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203215809847.png" alt="image-20201203215809847" style="zoom: 60%;" />
+<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203215809847.png" alt="image-20201203215809847" style="zoom: 50%;" />
 
 * **数据组织形式**
 
@@ -16,7 +16,7 @@
 
 ### 竞争关系抽取部分
 
-<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203222951910.png" alt="image-20201203222951910" style="zoom:67%;" />
+<img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203222951910.png" alt="image-20201203222951910" style="zoom:50%;" />
 
 
 
@@ -26,7 +26,7 @@
 
 * 实现思路
 
-    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203225806013.png" alt="image-20201203225806013" style="zoom: 80%;" />
+    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203225806013.png" alt="image-20201203225806013" style="zoom: 50%;" />
 
 #### 主线2：Transformer
 
@@ -36,7 +36,7 @@
 
 * **实现流程**
 
-    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203223029266.png" alt="image-20201203223029266" style="zoom:67%;" />
+    <img src="https://gitee.com/WIN0624/document/raw/markdown-picture/img/image-20201203223029266.png" alt="image-20201203223029266" style="zoom:50%;" />
 
 * **所用模型**
 
