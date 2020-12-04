@@ -14,9 +14,21 @@
                 ├── com.ForeSee.ForeSee
                     ├── eurekaServerMain.java  -- 启动类
             ├── resource  -- 其他文件
-                ├── application.yml  -- 配置文件，用于指定服务注册中心的地址
+                ├── application.yml  -- 主配置文件，用于指定使用哪个配置文件
+                ├── application-dev.yml -- 开发环境配置文件
+                ├── application-prod.yml -- 生产环境配置文件
         ├── test  -- 测试文件
 	├── pom.xml  -- Maven依赖文件
 ```
+### 配置说明 
 
-### 接口文档
+```yaml
+eureka:
+   instance:
+     hostname: eurekaServer //eureka服务器端主机名
+   client:
+     register-with-eureka: false //是否向eureka服务注册中心注册自己，客户端需要注册
+     fetch-registry: false  //是否是eureka服务器端，false表示是
+     service-url:  
+       defaultZone: http://localhost:8888/eureka/ //eureka注册中心的地址
+```

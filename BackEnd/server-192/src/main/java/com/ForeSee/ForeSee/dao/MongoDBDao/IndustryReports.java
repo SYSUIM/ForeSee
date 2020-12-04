@@ -17,11 +17,8 @@ import java.util.Map;
  **/
 @Slf4j
 public class IndustryReports {
-    private static MongoCollection<Document> collection;
     private static final String tableName="ArticleInfo";
-    private static MongoCursor<Document> cursor;
-    private static int pageSize=20;
-    private static StringBuilder sb;
+
     private static class ReportsStructureHolder {
         static Map<String,String> reportsStructure =new HashMap();
         static{
@@ -34,14 +31,15 @@ public class IndustryReports {
     private static Map<String,String> getReportsStructure(){return ReportsStructureHolder.reportsStructure;}
 
     public static String getIndustryReports(String industryId, MongoClient client, String page) {
-        collection= client.getDatabase("ForeSee").getCollection(tableName);
-        cursor = collection.find()
+        MongoCollection<Document> collection = client.getDatabase("ForeSee").getCollection(tableName);
+        int pageSize = 20;
+        MongoCursor<Document> cursor = collection.find()
                 .sort(Sorts.descending("pub_date"))
-                .skip(pageSize*(Integer.parseInt(page)-1))
+                .skip(pageSize * (Integer.parseInt(page) - 1))
                 .limit(pageSize).iterator();
-        long totalPage=collection.count();
+        long totalPage= collection.count();
         String head="{\"industry\": \"互联网\",\"page\":"+page+","+"\"totalpage\":"+totalPage+",\"reports\":[";
-        sb = new StringBuilder(head);
+        StringBuilder sb = new StringBuilder(head);
         try {
             while (cursor.hasNext()) {
                 Document originDoc = cursor.next(), extractDoc = new Document();
