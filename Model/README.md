@@ -30,6 +30,8 @@
 
 * 来源语料：股票新闻文本
 
+> [详细实现情况](https://github.com/panzy25/ForeSee/tree/master/Model/Competition)
+
 ### 智能检索部分
 
 * **实现流程**
