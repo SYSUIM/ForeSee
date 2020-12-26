@@ -28,7 +28,7 @@
 
 前端组编写了相关可视化网页，[ForeSee](http://180.76.249.27/weibo/foresee/vue_project_08/index.html#/)提供了企业搜索、行业搜索和行业报告的检索入口，并针对上市企业公开信息进行可视化展示；对行业内企业信息进行可视化数据分析。
 
-具体技术细节参考前端小组[README](FrontEnd/README.md)。
+具体技术细节参考前端小组[README](FrontEnd)。
 
 <br>
 
@@ -38,7 +38,7 @@
 
 后端组分别完成了分布式数据库、索引库的开发。基于SpringCloud框架，数据库集成了MongoDB、MySQL，开发了分布式的存书数据库。基于Redis，索引端实现了检索词与数据库之间的快速联系。
 
-具体技术细节参考后端小组[README](BackEnd/README.md)
+具体技术细节参考后端小组[README](BackEnd)
 
 <br>
 
@@ -48,7 +48,7 @@
 
 模型组的工作主要有数据采集、竞争关系抽取和智能检索。通过合法地采集上市公司的公开数据，项目获得了上市公司的基本信息、相关公开数据等结构化数据，相关新闻、公告信息等非结构化数据以及通过第三方实时获取的地理位置坐标。通过正则表达式匹配和Transformer模型对非结构化文本进行了竞争关系抽取；使用Bert和TransformerXL对检索词和搜索结果文本进行Embedding，实现初步的语义检索。
 
-具体技术细节参考模型组[README](Model/README.md)
+具体技术细节参考模型组[README](Model)
 
 <br>
 

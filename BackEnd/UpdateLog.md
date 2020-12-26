@@ -71,6 +71,10 @@
 - 添加了新的数据库请求
 - 更正了spring cloud的bug
 
+#### 2020.12.04
+
+- 完成了MongoDBDesign分片
+
 ### TODO
 
 1. 将项目的部分组件升级为spring cloud alibaba
