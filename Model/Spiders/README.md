@@ -397,8 +397,8 @@
 
 * 组织方式
 
-    * Internet_article_abstract.json：用于存储每篇行业分析的文章唯一标示符和摘要
-    * Internet_article_info.json：用于存储每篇行业分析的基本信息
+    * Internet_article_abstract.json (360K)：用于存储每篇行业分析的文章唯一标示符和摘要
+    * Internet_article_info.json (393K)：用于存储每篇行业分析的基本信息
 
     > 注意：当前只有一个行业的信息（互联网）
 
@@ -490,8 +490,8 @@
 ### 行业分析报告原文
 
 * 文本格式：TXT
-* 量级：
-* 路径：
+* 量级：8.7M, 共1507篇时间序列的行业分析
+* 路径：/data/prj2020/EnterpriseSpider/analysis/
 
 ## 二次生成的数据 （进行中）
 
