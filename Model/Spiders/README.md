@@ -499,7 +499,7 @@
 
 * 路径：/data/prj2020/EnterpriseSpider/competition/text/
 
-* 量级：
+* 量级：38M
 
 * 组织方式
 
@@ -513,7 +513,7 @@
 
 * 路径：/data/prj2020/EnterpriseSpider/competition/competitors/
 
-* 量级：
+* 量级：5M
 
 * 组织方式
 
@@ -576,5 +576,3 @@
         ]
     }
     ```
-
-### 
